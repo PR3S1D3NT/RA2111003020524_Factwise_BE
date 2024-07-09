@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int score(vector<int>& cards,int k) {
+    int n = cards.size();
+    int total = accumulate(cards.begin(),cards.end(),0);
+    if (k == n) return total;
+
+    int sz = n - k;
+    int mini = accumulate(cards.begin(),cards.begin() + sz,0);
+    int sum = temp;
+
+    for (int i = sz; i < n; ++i) {
+        sum += (cards[i] - cards[i-sz]);
+        mini = min(mini , sum);
+    }
+
+    return (total - mini);
+}
+
+int main() {
+  int n,k;
+  cin>>n>>k;
+  vector<int> cards(n);
+  for (int i=0 ; i<n ; ++i){
+      cin>>v[i];
+  }
+  cout<<score(v,k)<<endl;
+}
